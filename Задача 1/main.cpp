@@ -10,6 +10,11 @@ int Rand(int n)
     return rand() % n ;
 }
 
+int simple(int n){
+    for(int i = 2; i <= n/2; i++) if ((n % i) == 0) return 0;
+return 1;
+}
+
 int main()
 {
     //создаю пос-ть П1
@@ -66,7 +71,11 @@ int main()
     cout << "Amount of uneven elements: " << c << endl;
 
     //Нашёл максимальный и минимальный элементы вектора
-    cout << "Max element: " << *max_element(p.begin(), p.end()) << ", Min element: " << *min_element(p.begin(), p.end());
+    cout << "Max element: " << *max_element(p.begin(), p.end()) << ", Min element: " << *min_element(p.begin(), p.end()) << endl;
+
+    //Нашёл первый простой элемент вектора
+    auto it = find_if(p.begin(), p.end(), simple);
+    cout << "first simple element: " << *it << endl;
 
     return 0;
 }
