@@ -47,21 +47,22 @@ int main()
 //    }
 //    cout << endl;
 
-    //”дал€ю повтор€ющиес€ элементы
-    for (int i = 0; i < p.size() - 1; i++) {
-        int n = p[i];
-        int count = count_if(p.begin(), p.end(), [n](int elem){return elem == n;});
-        if (count > 1) {
-            p.erase(remove_if(p.begin() + i + 1, p.end(), [n](int elem){return elem == n;}), p.end());
-        }
-    }
+//    //”дал€ю повтор€ющиес€ элементы
+//    for (int i = 0; i < p.size() - 1; i++) {
+//        int n = p[i];
+//        int count = count_if(p.begin(), p.end(), [n](int elem){return elem == n;});
+//        if (count > 1) {
+//            p.erase(remove_if(p.begin() + i + 1, p.end(), [n](int elem){return elem == n;}), p.end());
+//        }
+//    }
+//
+//    for (size_t i = 0; i < p.size(); i++) {
+//        cout << i << ": " << p[i] << endl;
+//    }
+//    cout << endl;
 
-    for (size_t i = 0; i < p.size(); i++) {
-        cout << i << ": " << p[i] << endl;
-    }
-    cout << endl;
-
-
-
+    //ѕодсчитываю чЄтные элементы
+    int c = count_if(p.begin(), p.end(), [](int elem){return elem % 2 == 0;});
+    cout << "Amount of even elements: " << c << endl;
     return 0;
 }
