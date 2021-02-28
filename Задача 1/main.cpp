@@ -104,5 +104,17 @@ int main()
     int res = accumulate(p2.begin(), p2.end(), 0, [](int sum, int elem){return sum += elem;});
     cout << "Summ p2: " << res << endl;
 
+    //Заменил введённое пользователем количество элементов П2 на 1
+    cout << "How many new elements do you want to replace with 1: ";
+    int h;
+    cin >> h;
+
+    for_each(p2.begin(), p2.begin() + h, replace_1);
+    for (size_t i = 0; i < p2.size(); i++) {
+        cout << i << ": " << p2[i] << endl;
+    }
+    cout << endl;
+
+
    return 0;
 }
