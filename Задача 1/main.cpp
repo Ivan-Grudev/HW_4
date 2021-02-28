@@ -81,10 +81,22 @@ int main()
 //    auto it = find_if(p.begin(), p.end(), simple);
 //    cout << "first simple element: " << *it << endl;
 
-    //Возвёл в квадрат элементы вектора
-    for_each(p.begin(), p.end(), make_sqr);
+//    //Возвёл в квадрат элементы вектора
+//    for_each(p.begin(), p.end(), make_sqr);
+//    for (size_t i = 0; i < p.size(); i++) {
+//        cout << i << ": " << p[i] << endl;
+//    }
+//    cout << endl;
+
+    vector <int> p2(p.size());
+    int r2 = 0;
+    for (int i = 0; i < p.size(); i++) {
+        srand(time(0) * r2++ * 7);
+        p2[i] = rand();
+    }
+
     for (size_t i = 0; i < p.size(); i++) {
-        cout << i << ": " << p[i] << endl;
+        cout << i << ": " << p2[i] << endl;
     }
     cout << endl;
 
