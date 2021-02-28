@@ -10,7 +10,7 @@ int main()
     int r = 0;
     for (int i = 0; i < 10; i++) {
         srand(time(0) * r++ * 7);
-        p[i] = rand() % 10;
+        p[i] = rand() % 10 + 1;
     }
 
     for (int i = 0; i < 10; i++) {
