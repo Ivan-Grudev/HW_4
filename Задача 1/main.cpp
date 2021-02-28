@@ -62,7 +62,10 @@ int main()
 //    cout << endl;
 
     //Подсчитываю чётные элементы
-    int c = count_if(p.begin(), p.end(), [](int elem){return elem % 2 == 0;});
-    cout << "Amount of even elements: " << c << endl;
+    int c = count_if(p.begin(), p.end(), [](int elem){return elem % 2 != 0;});
+    cout << "Amount of uneven elements: " << c << endl;
+
+
+
     return 0;
 }
