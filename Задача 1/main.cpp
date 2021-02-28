@@ -15,6 +15,10 @@ int simple(int n){
 return 1;
 }
 
+void make_sqr (int &n) {
+    n = n * n;
+}
+
 int main()
 {
     //создаю пос-ть П1
@@ -66,16 +70,25 @@ int main()
 //    }
 //    cout << endl;
 
-    //Подсчитываю чётные элементы
-    int c = count_if(p.begin(), p.end(), [](int elem){return elem % 2 != 0;});
-    cout << "Amount of uneven elements: " << c << endl;
+//    //Подсчитываю чётные элементы
+//    int c = count_if(p.begin(), p.end(), [](int elem){return elem % 2 != 0;});
+//    cout << "Amount of uneven elements: " << c << endl;
+//
+//    //Нашёл максимальный и минимальный элементы вектора
+//    cout << "Max element: " << *max_element(p.begin(), p.end()) << ", Min element: " << *min_element(p.begin(), p.end()) << endl;
+//
+//    //Нашёл первый простой элемент вектора
+//    auto it = find_if(p.begin(), p.end(), simple);
+//    cout << "first simple element: " << *it << endl;
 
-    //Нашёл максимальный и минимальный элементы вектора
-    cout << "Max element: " << *max_element(p.begin(), p.end()) << ", Min element: " << *min_element(p.begin(), p.end()) << endl;
+    //Возвёл в квадрат элементы вектора
+    for_each(p.begin(), p.end(), make_sqr);
+    for (size_t i = 0; i < p.size(); i++) {
+        cout << i << ": " << p[i] << endl;
+    }
+    cout << endl;
 
-    //Нашёл первый простой элемент вектора
-    auto it = find_if(p.begin(), p.end(), simple);
-    cout << "first simple element: " << *it << endl;
 
-    return 0;
+
+   return 0;
 }
