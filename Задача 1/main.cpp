@@ -92,29 +92,44 @@ int main()
     int r2 = 0;
     for (size_t i = 0; i < p.size(); i++) {
         srand(time(0) * r2++ * 7);
-        p2[i] = rand();
+        p2[i] = rand() % 10;
     }
 
-    for (size_t i = 0; i < p.size(); i++) {
-        cout << i << ": " << p2[i] << endl;
-    }
-    cout << endl;
-
-    //Посчитал сумму элементов П2
-    int res = accumulate(p2.begin(), p2.end(), 0, [](int sum, int elem){return sum += elem;});
-    cout << "Summ p2: " << res << endl;
-
-    //Заменил введённое пользователем количество элементов П2 на 1
-    cout << "How many new elements do you want to replace with 1: ";
-    int h;
-    cin >> h;
-
-    for_each(p2.begin(), p2.begin() + h, replace_1);
     for (size_t i = 0; i < p2.size(); i++) {
         cout << i << ": " << p2[i] << endl;
     }
     cout << endl;
 
+    //Посчитал сумму элементов П2
+//    int res = accumulate(p2.begin(), p2.end(), 0, [](int sum, int elem){return sum += elem;});
+//    cout << "Summ p2: " << res << endl;
+
+//    //Заменил введённое пользователем количество элементов П2 на 1
+//    cout << "How many new elements do you want to replace with 1: ";
+//    int h;
+//    cin >> h;
+//
+//    for_each(p2.begin(), p2.begin() + h, replace_1);
+//    for (size_t i = 0; i < p2.size(); i++) {
+//        cout << i << ": " << p2[i] << endl;
+//    }
+//    cout << endl;
+
+    sort(p.begin(), p.end());
+    sort(p2.begin(), p2.end());
+
+    vector <int> p3(p.size());
+	cout << "set_difference(): ";
+	set_difference(
+		p.cbegin(), p.cend(),
+		p2.cbegin(), p2.cend(),
+		p3.begin());
+	cout << endl;
+
+    for (size_t i = 0; i < p3.size(); i++) {
+        cout << i << ": " << p3[i] << endl;
+    }
+    cout << endl;
 
    return 0;
 }
