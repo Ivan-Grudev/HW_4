@@ -21,26 +21,40 @@ int main()
     }
     cout << endl;
 
-    //Добавляю элементы в П1 через cin
-    cout << "How many new elements do you want to add: ";
-    int n;
-    cin >> n;
-
-    for (int i = 0; i < n; i++) {
-        int x;
-        cout << "Input new element: ";
-        cin >> x;
-        p.push_back(x);
-    }
-
-    cout << "size =  " << p.size() << endl;
+//    //Добавляю элементы в П1 через cin
+//    cout << "How many new elements do you want to add: ";
+//    int n;
+//    cin >> n;
+//
+//    for (int i = 0; i < n; i++) {
+//        int x;
+//        cout << "Input new element: ";
+//        cin >> x;
+//        p.push_back(x);
+//    }
+//
+//    cout << "size =  " << p.size() << endl;
     for (size_t i = 0; i < p.size(); i++) {
         cout << i << ": " << p[i] << endl;
     }
     cout << endl;
+//
+//    //Перемешиваю элементы П1
+//    random_shuffle(p.begin(), p.end(), pointer_to_unary_function<int, int>(Rand));
+//
+//    for (size_t i = 0; i < p.size(); i++) {
+//        cout << i << ": " << p[i] << endl;
+//    }
+//    cout << endl;
 
-    //Перемешиваю элементы П1
-    random_shuffle(p.begin(), p.end(), pointer_to_unary_function<int, int>(Rand));
+    //Удаляю повторяющиеся элементы
+    for (int i = 0; i < p.size() - 1; i++) {
+        int n = p[i];
+        int count = count_if(p.begin(), p.end(), [n](int elem){return elem == n;});
+        if (count > 1) {
+            p.erase(remove_if(p.begin() + i + 1, p.end(), [n](int elem){return elem == n;}), p.end());
+        }
+    }
 
     for (size_t i = 0; i < p.size(); i++) {
         cout << i << ": " << p[i] << endl;
