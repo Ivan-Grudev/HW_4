@@ -1,8 +1,14 @@
 #include <iostream>
 #include <vector>
 #include <ctime>
+#include <algorithm>
 
 using namespace std;
+
+int Rand(int n)
+{
+    return rand() % n ;
+}
 
 int main()
 {
@@ -31,6 +37,15 @@ int main()
     for (size_t i = 0; i < p.size(); i++) {
         cout << i << ": " << p[i] << endl;
     }
+    cout << endl;
+
+    //Перемешиваю элементы П1
+    random_shuffle(p.begin(), p.end(), pointer_to_unary_function<int, int>(Rand));
+
+    for (size_t i = 0; i < p.size(); i++) {
+        cout << i << ": " << p[i] << endl;
+    }
+    cout << endl;
 
 
 
