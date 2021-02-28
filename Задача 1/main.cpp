@@ -90,7 +90,7 @@ int main()
 
     vector <int> p2(p.size());
     int r2 = 0;
-    for (int i = 0; i < p.size(); i++) {
+    for (size_t i = 0; i < p.size(); i++) {
         srand(time(0) * r2++ * 7);
         p2[i] = rand();
     }
@@ -100,7 +100,9 @@ int main()
     }
     cout << endl;
 
-
+    //Посчитал сумму элементов П2
+    int res = accumulate(p2.begin(), p2.end(), 0, [](int sum, int elem){return sum += elem;});
+    cout << "Summ p2: " << res << endl;
 
    return 0;
 }
