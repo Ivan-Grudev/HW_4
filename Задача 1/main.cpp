@@ -65,7 +65,8 @@ int main()
     int c = count_if(p.begin(), p.end(), [](int elem){return elem % 2 != 0;});
     cout << "Amount of uneven elements: " << c << endl;
 
-
+    //Нашёл максимальный и минимальный элементы вектора
+    cout << "Max element: " << *max_element(p.begin(), p.end()) << ", Min element: " << *min_element(p.begin(), p.end());
 
     return 0;
 }
