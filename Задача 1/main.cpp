@@ -2,6 +2,8 @@
 #include <vector>
 #include <ctime>
 #include <algorithm>
+#include <numeric>
+#include <iterator>
 
 using namespace std;
 
@@ -17,6 +19,23 @@ return 1;
 
 void make_sqr (int &n) {
     n = n * n;
+}
+
+void replace_1 (int &n) {
+    n = 1;
+}
+
+void replace_0 (int &n) {
+    if (n < 0) {
+        n = 0;
+    }
+}
+
+void print(vector <int> p) {
+    for (size_t i = 0; i < p.size(); i++) {
+        cout << i << ": " << p[i] << endl;
+    }
+    cout << endl;
 }
 
 int main()
@@ -43,18 +62,12 @@ int main()
 //    }
 //
 //    cout << "size =  " << p.size() << endl;
-    for (size_t i = 0; i < p.size(); i++) {
-        cout << i << ": " << p[i] << endl;
-    }
-    cout << endl;
+    print(p);
 //
 //    //Перемешиваю элементы П1
 //    random_shuffle(p.begin(), p.end(), pointer_to_unary_function<int, int>(Rand));
 //
-//    for (size_t i = 0; i < p.size(); i++) {
-//        cout << i << ": " << p[i] << endl;
-//    }
-//    cout << endl;
+//    print(p);
 
 //    //Удаляю повторяющиеся элементы
 //    for (int i = 0; i < p.size() - 1; i++) {
@@ -65,10 +78,7 @@ int main()
 //        }
 //    }
 //
-//    for (size_t i = 0; i < p.size(); i++) {
-//        cout << i << ": " << p[i] << endl;
-//    }
-//    cout << endl;
+//    print(p);
 
 //    //Подсчитываю чётные элементы
 //    int c = count_if(p.begin(), p.end(), [](int elem){return elem % 2 != 0;});
@@ -126,10 +136,10 @@ int main()
 		p3.begin());
 	cout << endl;
 
-    for (size_t i = 0; i < p3.size(); i++) {
-        cout << i << ": " << p3[i] << endl;
-    }
-    cout << endl;
+    print(p3);
+
+    for_each(p3.begin(), p3.end(), replace_0);
+    print(p3);
 
    return 0;
 }
