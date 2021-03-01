@@ -141,5 +141,8 @@ int main()
     for_each(p3.begin(), p3.end(), replace_0);
     print(p3);
 
+    p3.erase(remove_if(p3.begin(), p3.end(), [](int elem){return elem == 0;}), p3.end());
+    print(p3);
+
    return 0;
 }
